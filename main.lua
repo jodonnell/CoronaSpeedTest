@@ -14,18 +14,20 @@ local imageGroup = display.newImageGroup( imageSheet )
 
 
 sprites = {}
-for i=1,1200 do
+for i=1,1350 do
    sprites[i] = display.newImage(imageSheet, 1)
    imageGroup:insert( sprites[i] )
-   sprites[i].x, sprites[i].y = math.random(300), math.random(490)
+   sprites[i].x, sprites[i].y = math.random(320), math.random(490)
 end
 
 function mainGameLoop(event)
-   for i=1,1200 do
-      if sprites[i].y < 0 then
-	 sprites[i].y = 490
+   for i=1,1350 do
+      local sprite = sprites[i]
+      local y = sprite.y
+      if y < 0 then
+	 sprite.y = 490
       else
-	 sprites[i].y = sprites[i].y - 10
+	 sprite.y = y - 10
       end
    end
 end
